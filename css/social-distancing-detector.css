@@ -1,0 +1,177 @@
+body {
+    overflow: hidden;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 20%, rgb(236, 243, 251) 60%);
+}
+
+* {
+    transition: 350ms ease;
+}
+
+.man,
+.woman {
+    position: relative;
+    margin: 5vw;
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.woman img,
+.man img {
+    max-width: 142px;
+    width: 16vw;
+    transform-origin: left bottom;
+    animation-name: brief;
+    animation-interation-count: infinite;
+    animation-duration: 1s;
+}
+
+.hand {
+    position: absolute;
+    display: none;
+}
+
+.hand img {
+    width: 10vw;
+}
+
+.man .hand {
+    left: 9.5vw;
+    top: 9.6vw;
+    z-index: -1;
+}
+
+.woman .hand {
+    right: 10vw;
+    top: 9.6vw;
+    z-index: -1;
+}
+
+.distance-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.distance-bar:after {
+    content: '保持社交距離';
+    position: absolute;
+    text-align: center;
+    background: #654cfe;
+    padding: 5px 40px;
+    font-size: 2.5vw;
+    color: #70f157;
+    font-family: 'Arial';
+    border-radius: 50px;
+}
+
+.distance-bar .horizontal-bar {
+    background: #654cfe;
+    max-width: 62vw;
+    height: 7px;
+    min-width: calc(60vw - 100px);
+}
+
+.distance-bar .vertical-bar {
+    background: #70f157;
+    width: 1vh;
+    height: 35px;
+    border-radius: 20px;
+}
+
+.corona {
+    position: absolute;
+    top: 0;
+    animation-name: move;
+    animation-iteration-count: infinite;
+}
+
+.corona img {
+    max-width: 5vw;
+    min-width: 30px;
+}
+
+.virus-1 {
+    left: 10vw;
+    animation-duration: 2s;
+    zoom: 1.5;
+}
+
+.virus-2 {
+    left: 32vw;
+    zoom: 0.8;
+    animation-duration: 5s;
+}
+
+.virus3 {
+    left: 32vw;
+    animation-duration: 6s;
+}
+
+@keyframes move {
+    0% {
+        margin-top: 0;
+        margin-left: 0;
+        transform: rotate(0deg);
+    }
+    50% {
+        margin-top: 30px;
+        margin-left: 5px;
+        transform: rotate(180deg);
+    }
+    100% {
+        margin-top: 0;
+        margin-left: 0;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes brief {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.01);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        background: radial-gradient(circle, rgb(251, 251, 251) 20%, rgb(251, 224, 190) 60%);
+    }
+    .distance-bar:after {
+        content: '維持社交距離';
+        background: #FFC107;
+        color: #fffcfb;
+        padding: 5px 30px;
+    }
+    .distance-bar .vertical-bar,
+    .distance-bar .horizontal-bar {
+        background: #ffc107;
+    }
+    .hand {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        background: radial-gradient(circle, rgb(255, 121, 157) 20%, #f53665 60%);
+    }
+    .distance-bar:after {
+        content: '感染風險';
+        background: #f53665;
+        padding: 5px 13x;
+    }
+    .distance-bar .vertical-bar,
+    .distance-bar .horizontal-bar {
+        background: #ff004b;
+    }
+}
